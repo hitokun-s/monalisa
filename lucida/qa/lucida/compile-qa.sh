@@ -4,6 +4,9 @@
 # Now javac knows to look for the class info.ephyra.OpenEphyra in the directory info/ephyra/
 # However, javac still needs the classpath to the package.
 
+export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:/usr/local/thrift/thrift-0.9.3/lib/java/build
+export CLASSPATH=$CLASSPATH:/usr/local/thrift/thrift-0.9.3/lib/java/build
+
 printdivision()
 {
 	echo -e "\n"
@@ -39,4 +42,8 @@ export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:../../command-center/gen-java
 
 # Use cp flag to avoid cluttering up the CLASSPATH environment variable
 echo -e "javac -cp $JAVA_CLASS_PATH QADaemon.java QAServiceHandler.java gen-java/qastubs/QAService.java\n\n"
+
+export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:/usr/local/thrift/thrift-0.9.3/lib/java/build
+export CLASSPATH=$CLASSPATH:/usr/local/thrift/thrift-0.9.3/lib/java/build
+
 javac -cp $JAVA_CLASS_PATH QADaemon.java QAServiceHandler.java gen-java/qastubs/QAService.java

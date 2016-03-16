@@ -22,4 +22,8 @@ PORT=$1
 CC_PORT=$2
 
 # Use cp flag to avoid cluttering up the CLASSPATH environment variable
-java -cp $JAVA_CLASS_PATH -Djava.library.path=lib/search/ -server -Xms1024m -Xmx2048m QADaemon $PORT $CC_PORT
+
+export JAVA_CLASS_PATH=$JAVA_CLASS_PATH:/usr/local/thrift/thrift-0.9.3/lib/java/build
+export CLASSPATH=$CLASSPATH:/usr/local/thrift/thrift-0.9.3/lib/java/build
+
+java -cp $JAVA_CLASS_PATH -Djava.library.path=lib/search/ -server  -Xmx1500m QADaemon $PORT $CC_PORT
